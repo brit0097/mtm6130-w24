@@ -1,0 +1,292 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* ---------- Custom Styles ----------- */
+
+/* this is the general custom - it applies to the whole page, so like h1, h2, p... */
+
+/* the * means to tag everything */
+
+/* border box remove some space when you create a form (something related to the space between the margin and the | */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+img {
+    width: 100%;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    margin: 16px 0 8px;
+}
+
+h1 {
+    font-size: 34px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+p {
+    margin: 14px 0;
+}
+
+/* this a:visited is to not change after clicking the link
+the inherit is taking the color black from the body, that is the standard colour of all webpages */
+a, a:visited {
+    color: inherit;
+}
+
+/* this is to make the link blue when hovered */
+a:hover, a:focus {
+    color: #00ADDB;
+}
+
+
+/* this makes it have a margin, a max-width, so it doesn't take the whole width of the page if it's bigger than expect */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+section {
+    margin-bottom: 80px;
+}
+
+
+/* ------------- Header ------------ */
+
+header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.mobile-logo {
+    width: 100px;
+}
+
+.desktop-logo {
+    display: none;
+}
+
+/* ../ is to leave the folder */
+.banner {
+    position: relative;
+    background-color: gray;
+    height: 600px;
+    background-image: url("../images/mobile-banner.jpg");
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* transform: you have to memorise that you have to use it to centralise a text - it does not have an explanation -- they are coordinates, how much it removes in each padding */
+/* you can do text-align: center instead of transform: translate... */
+.banner h1 {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.nav-list li {
+    border-bottom: 1px solid gray;
+}
+
+/* make the link a block means that we're making it a tiny container, so we can add padding. we cannot add padding if it's not like that -- you make the entire list space clickable - so it's a good practice*/
+.nav-list li a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 16px 0;
+}
+
+.nav-list li a.active {
+    color: #00AADB;
+}
+
+/* ------------- App Section ------------ */
+
+/* border-radius makes it round in the corner. padding adds space between the text and the borders */
+.app-section .btn {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 6px;
+}
+
+.app-section .btn:hover,
+.app-section .btn:focus {
+    background-color: #00ADDB;
+    color: white;
+}
+
+.app-section .content {
+    display: flex;
+    flex-direction: column;
+}
+    
+.app-section .description {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------------- Footer ------------ */
+
+footer {
+    padding: 20px 0;
+    border-top: 2px solid #00AADB;
+}
+
+.copyright{
+    float: right;
+}
+
+
+
+/* -------- Desktop -------- */
+
+/* copy and paste inside here the properties on css you already made and you want to change */
+@media screen and (min-width:700px) {
+    h1 {
+        font-size: 40px;
+    }
+    
+    h2 {
+        font-size: 32px;
+    }
+    
+    h3 {
+        font-size: 28px;
+    }
+
+    /* -------- Header -------- */
+
+    header {
+        text-align: left;
+    }
+
+    .mobile-logo {
+        display: none;
+    }
+    
+    /* when you get to js you dont have this issue anymore. but for now you have to set a display:inline-block for the logo to show */
+    .desktop-logo {
+        display: inline-block;
+        width: 200px;
+    }
+
+    .banner {
+        background-image: url(../images/desktop-banner.jpg);
+    }
+
+    .banner h1 {
+        color: white;
+    }
+
+    .nav-list {
+        flex-direction: row;
+    
+    }
+    
+    /* flex-grow makes it get spaced equally through the whole width of the page*/
+    .nav-list li {
+        border-bottom: none;
+        border-right: 1px solid gray;
+        flex-grow: 1;
+    }
+
+    .nav-list li:last-child {
+        border-right: none;
+    }
+    
+
+    /* -------- App Section -------- */
+
+     
+    .app-section .content {
+        flex-direction: row;
+    }
+
+    .app-section img {
+        width: 400px;
+        margin-right: 60px;
+    }
+        
+    .app-section .description {
+        align-items: flex-start;
+    }
+
+    .app-section .description .btn {
+        align-self: flex-end;
+    }
+
+}
